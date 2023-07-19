@@ -25,4 +25,5 @@ def home(req):
     return render(req , '_blog/home.html', context)
 
 def about(req):
-    return render(req , "_blog/about.html")
+    return render(req , "_blog/about.html", {"title": "About"})
+
