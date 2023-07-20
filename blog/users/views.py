@@ -9,7 +9,7 @@ def register(req):
           if form.is_valid():
                username = form.cleaned_data.get('username')
                messages.success(req , f'Your account has been created! You are now able to log in')
-               # form.save()
+               form.save()
                return redirect('login')
           
      else:
