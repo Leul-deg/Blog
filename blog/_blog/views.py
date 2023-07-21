@@ -23,7 +23,7 @@ class PostDetailView(DetailView):
     model = Post
      
 class PostCreateView(LoginRequiredMixin, CreateView):
-    model = Post
+    model = Post  
     fields = ['title' , 'content']
 
     def form_valid(self, form):
@@ -39,6 +39,16 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin,  UpdateView):
         return super().form_valid(form)
     
     def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        return False
+
+class PostDeleteView( LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Post
+    success_url = '/'
+
+    def test_func(self) -> bool | None:
         post = self.get_object()
         if self.request.user == post.author:
             return True
