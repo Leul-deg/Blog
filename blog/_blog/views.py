@@ -1,3 +1,4 @@
+
 from typing import Optional
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render
@@ -17,6 +18,7 @@ class PostListView(ListView):
     template_name = '_blog/home.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
+    paginate_by = 5
 
 
 class PostDetailView(DetailView):
