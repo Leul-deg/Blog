@@ -1,3 +1,4 @@
+A BLOG WEBSITE BUILT USING DJANGO.
 1. Clone the repository
     git clone https://github.com/myusername/my-django-project.git
 
